@@ -1,0 +1,213 @@
+<div class="row gy-4">
+  <div class="col-md-12">
+
+    <div class="card">
+        <div class="card-header">
+             <h5>Detalhes Nucleo</h5>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mt-2">
+                <div class="col-md-12">
+                    <h1>
+                  <p> </strong> {{Nucleo.Designacao}} </p>
+                    </h1>
+
+               </div>
+
+               <div class="col-md-4">
+                      <p><strong>Padroeiro </strong> {{Nucleo.Padroeiro_id.Nome}}</p>
+
+               </div>
+
+              <div class="col-md-4">
+                <p>
+                    <strong>Comunidade</strong> {{Nucleo.Comunidade_id.Designacao}}
+                </p>
+
+              </div>
+
+              <div class="col-md-4">
+                <p>
+                      <strong>Area Geografica</strong> {{Nucleo.Area}}
+                </p>
+
+              </div>
+
+             
+              
+            </div>
+
+            <div class="card-body text-center" >
+                <a href="#" class="card-link btn btn-outline-secondary">Actualizar</a>
+                <a href="#" class="card-link btn btn-outline-danger ">Remover</a>
+           </div>
+
+          </div>
+     </div>
+     
+  </div>
+
+  
+
+  <div class="col-md-12">
+                 <div class="card">
+                <div class="card-header">
+                        <h5>Painel Nucleo</h5>
+                </div>
+
+                <div class="card-body">
+
+                  <div class="row text-center mb-5 gy-2">
+                          <div class="col-md-4">
+                            <div class="card">
+                              <div class="card-header">Membros</div>
+                              <div class="card-body">
+                                      <h5>{{MembrosTotal}}</h5>
+
+                                      <a href="/dizimista/new" class="card-link">Registar</a>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="card">
+                              <div class="card-header">Contribuicoes</div>
+                              <div class="card-body"></div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-4">
+                            <div class="card">
+                              <div class="card-header">Ofertas</div>
+                              <div class="card-body"></div>
+                            </div>
+                          </div>
+
+                          <div class="col-md-12">
+                            <div class="card">
+                              <div class="card-header">Contribuicao</div>
+                              <div class="card-body">
+                                     <form class="" action="" method="post">
+
+                                          <div class="row gy-3">
+                                                  <div class="col-md-4">
+                                                      <div class="form-group">
+                                                        <div class="input-group">
+                                                          <span class="input-group-text">Valor</span>
+                                                            <input type="number" class="form-control" id="nome"  name="Valor" placeholder="Valor Contribuicao" >
+                                                                                         
+                                                        </div>
+                                                      </div>
+                                                </div>
+                                         
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                      <div class="input-group">
+                                                        <span class="input-group-text">Contribuente</span>
+                                                        
+                                                          <select class="form-select" name="Dizimista">
+                                                            {{#each Membros}}
+                                                              <option value="{{this._id}}">{{this.Nome}}</option>
+                                                            {{/each}}
+                                                          </select> 
+                                                      </div>
+                                                    </div>
+                                                  </div>
+
+                                                   <div class="col-md-4">
+                                                    <div class="form-group">
+                                                     
+                                                         <input type="submit" class="btn btn-outline-secondary" name="" value="Contribuir">
+                                                    </div>
+                                                  </div>
+
+                                             </div>
+
+                                    </form>
+                              </div>
+                            </div>
+                          </div>
+
+
+                  </div>
+
+                   <hr>
+                    <div class="form-group col-md-4"> 	<!--		Show Numbers Of Rows 		-->
+                        <div class="input-group ">
+                          <span class="input-group-text">Paginação</span>
+
+                              <div class="form-floating ">
+                                <select class  ="form-select" name="state" id="maxRows">
+                                  <option value="5000">Total</option>
+                                  <option value="5">5</option>
+                                  <option value="10">10</option>
+                                  <option value="15">15</option>
+                                  <option value="20">20</option>
+                                  <option value="50">50</option>
+                                  <option value="70">70</option>
+                                  <option value="100">100</option>
+                                  </select>
+                                  <label for="maxRows">Nr. Item</label>
+                              </div>
+                        </div>
+                    </div>
+                    
+                     
+                    <table class="table" id="table-id">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nome</th>
+                          <th scope="col">Email</th>
+                          <th scope="col" colspan="1">Acção</th>
+                        </tr>
+                      </thead>
+
+                      <tbody class="table-group-divider">
+                        {{#each Membros }}
+
+                            <tr id="paginated-list">
+                              <td scope="row">{{this.Nome}}</td>
+                              <td scope="row">{{this.Email}}</td>
+                              <td colspan="2" class="btn-group" role="group">
+                                <a href='/dizimista/edit/{{this._id}}' class="btn btn-outline-dark btn-sm">Edição</a>
+                              
+                              </td>
+                            </tr>
+
+                        {{/each}}
+                      </tbody>
+
+
+                    </table>
+
+                      <nav class="pagination-container">
+                        <div id="pagination-numbers">
+
+                        </div>
+                      </nav>
+                  </div>
+
+                          <!--		Start Pagination -->
+                  <div class='pagination-container col-md-12 d-flex justify-content-center'>
+                    <nav aria-label="Page navigation ">
+                      <ul class="pagination pagination-md">
+
+                          <li data-page="prev" class="page-item" >
+                                  <span class="page-link sr-only">Anterior</span>
+                          </li>
+                          <!--	Here the JS Function Will Add the Rows -->
+                          <li data-page="next" class="page-item "id="prev">
+                                  <span class="page-link sr-only">Proximo</span>
+                          </li>
+                      </ul>
+                    </nav>
+                  </div>
+              </div>
+  </div>
+ </div>
+</div>
+</div>
+<script src="/js/pager.js" charset="utf-8"></script>

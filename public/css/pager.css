@@ -1,0 +1,17 @@
+
+
+table th , table td{
+    text-align: center;
+}
+
+table tr:nth-child(even){
+/*  background-color: #BEF2*/
+}
+
+.pagination li:hover{
+    cursor: pointer;
+}
+
+.oculta {
+  	display: none;
+}

@@ -1,0 +1,84 @@
+<div class="row ">
+  <div class="col-md-12">
+    <h1>Contribuições</h1>
+    <p>Lista de Contribuições</p>
+  </div>
+</div>
+
+<div class="row py-4">
+
+  <div class="form-group col-md-4"> 	<!--		Show Numbers Of Rows 		-->
+      <div class="input-group ">
+        <span class="input-group-text">Paginação</span>
+
+            <div class="form-floating ">
+              <select class  ="form-select" name="state" id="maxRows">
+                 <option value="5000">Total</option>
+                 <option value="5">5</option>
+                 <option value="10">10</option>
+                 <option value="15">15</option>
+                 <option value="20">20</option>
+                 <option value="50">50</option>
+                 <option value="70">70</option>
+                 <option value="100">100</option>
+                </select>
+                <label for="maxRows">Nr. Item</label>
+            </div>
+      </div>
+   </div>
+
+
+  <div class="col-md-12">
+    <table class="table" id="table-id">
+  <thead>
+    <tr>
+      <th scope="col">Designacao</th>
+      <th scope="col">Comunidade</th>
+      <th scope="col" colspan="1">Acção</th>
+    </tr>
+  </thead>
+
+  <tbody class="table-group-divider">
+    {{#each Nucleo}}
+
+        <tr id="paginated-list">
+          <td scope="row">{{this.Designacao}}</td>
+          <td scope="row">{{this.Comunidade_id.Area}}</td>
+          <td colspan="2" class="btn-group" role="group">
+            <a href='/nucleo/edit/{{this._id}}' class="btn btn-outline-dark btn-sm">Edição</a>
+            <a href='/nucleo/{{this._id}}' class="btn btn-outline-dark btn-sm">Visualizar</a>
+          </td>
+        </tr>
+
+    {{/each}}
+  </tbody>
+
+
+</table>
+
+      <nav class="pagination-container">
+        <div id="pagination-numbers">
+
+        </div>
+      </nav>
+  </div>
+</div>
+
+<!--		Start Pagination -->
+      <div class='pagination-container col-md-12 d-flex justify-content-center'>
+        <nav aria-label="Page navigation ">
+          <ul class="pagination pagination-md">
+
+              <li data-page="prev" class="page-item" >
+                      <span class="page-link sr-only">Anterior</span>
+              </li>
+              <!--	Here the JS Function Will Add the Rows -->
+              <li data-page="next" class="page-item "id="prev">
+                       <span class="page-link sr-only">Proximo</span>
+              </li>
+          </ul>
+        </nav>
+      </div>
+</div>
+
+<script src="/js/pager.js" charset="utf-8"></script>

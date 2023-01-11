@@ -1,0 +1,94 @@
+<div class="col-md-12">
+<h1>Contribuente</h1>
+<p>Formulário de cadastro</p>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-md-8 ">
+    <form class="" action="" method="post">
+
+      <div class="row gy-3">
+
+
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-text">Nome</span>
+              <div class="form-floating">
+
+                  <input type="text" class="form-control" id="nome"  name="Nome">
+                  <label for="nome">Nome do Contribuente</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-text">Email</span>
+              <div class="form-floating">
+
+                  <input type="email" class="form-control" id="nome" name="Email">
+                  <label for="nome">Email do Contribuente</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-text">Nucleo</span>
+              <div class="form-floating">
+                <select class="form-select" name="Nucleo">
+                  {{#each Nucleo}}
+                    <option value="{{this._id}}">{{this.Designacao}}</option>
+                  {{/each}}
+                </select>
+
+                  <label for="nome">Nucleo do Contrbuente</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-text">Cartao</span>
+              <div class="form-floating">
+
+                  <input type="text" class="form-control" id="nome" name="Area">
+                  <label for="nome">Cartao do Contrbuente</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 con">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <input type="submit" class="btn btn-outline-success" name="" value="Cadastrar">
+            <input type="button" class="btn btn-outline-danger" name="" value="Cancelar">
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      </div>
+
+
+
+    </form>
+
+  </div>
+
+</div>
