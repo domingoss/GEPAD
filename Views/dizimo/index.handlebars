@@ -32,22 +32,23 @@
     <table class="table" id="table-id">
   <thead>
     <tr>
-      <th scope="col">Designacao</th>
-      <th scope="col">Comunidade</th>
+      <th scope="col">Contribuente</th>
+      <th scope="col">Nucleo</th>
+      <th scope="col">Valor</th>
       <th scope="col" colspan="1">Acção</th>
     </tr>
   </thead>
 
   <tbody class="table-group-divider">
-    {{#each Nucleo}}
+    {{#each Dizimo}}
 
         <tr id="paginated-list">
-          <td scope="row">{{this.Designacao}}</td>
-          <td scope="row">{{this.Comunidade_id.Area}}</td>
+          <td scope="row">{{this.Dizimista_id.Nome}}</td>
+          <td scope="row">{{this.N_id.Designacao}}</td>
+          <td scope="row">{{this.Valor}}</td>
           <td colspan="2" class="btn-group" role="group">
-            <a href='/nucleo/edit/{{this._id}}' class="btn btn-outline-dark btn-sm">Edição</a>
-            <a href='/nucleo/{{this._id}}' class="btn btn-outline-dark btn-sm">Visualizar</a>
-          </td>
+            <a href='/dizimo/edit/{{this._id}}' class="btn btn-outline-dark btn-sm">Edição</a>
+            </td>
         </tr>
 
     {{/each}}

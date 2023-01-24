@@ -64,7 +64,7 @@
                             <div class="card">
                               <div class="card-header">Membros</div>
                               <div class="card-body">
-                                      <h5>{{MembrosTotal}}</h5>
+                                      <h5><span style="font-size: 2em; font-weight: bold;">{{MembrosTotal}}</span></h5>
 
                                       <a href="/dizimista/new" class="card-link">Registar</a>
                               </div>
@@ -74,7 +74,11 @@
                           <div class="col-md-4">
                             <div class="card">
                               <div class="card-header">Contribuicoes</div>
-                              <div class="card-body"></div>
+                              <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-start">Total Contribuições: <span style="font-size: 2em; font-weight: bold;">{{TotalContribuicoes}}</span> </li>
+                                <li class="list-group-item text-start">Total Contribuido: <span style="font-size: 2em; font-weight: bold;">{{TotalContribuido}}</span> MT</li>
+                                
+                              </ul>
                             </div>
                           </div>
 

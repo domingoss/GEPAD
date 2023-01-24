@@ -1,5 +1,5 @@
 const DizimistaModel = require('../Models/Dizimista.js')
-const NucleoModel = require('../Models/Nucleo.js')
+const NuModel = require('../Models/Nu.js')
 
 module.exports.controller = (app) => {
 
@@ -7,7 +7,7 @@ module.exports.controller = (app) => {
 
         await DizimistaModel.find({})
                           .lean()
-                          .populate('Nucleo_id')
+                          .populate('Nu_id')
                           .exec((error, dizimista)=>{
                                  if(error){
                                      console.log(error)
@@ -22,7 +22,7 @@ module.exports.controller = (app) => {
 
      app.get('/dizimista/new', async (req, res)=>{
        
-        const Nucleo = await NucleoModel.find({})
+        const Nucleo = await NuModel.find({})
                                         .lean()
     
          res.render('dizimista/new', {Nucleo: Nucleo})
@@ -37,7 +37,7 @@ module.exports.controller = (app) => {
         const Dizimista = new DizimistaModel({
           Nome: req.body.Nome,
           Email: req.body.Email,
-          Nucleo_id:req.body.Nucleo,
+          Nu_id:req.body.Nucleo,
           Cartao: Cartao
    
         })
@@ -71,7 +71,7 @@ module.exports.controller = (app) => {
          await DizimistaModel.updateOne({_id: req.params.id},{$set: {
             Nome: req.body.Nome,
             Email: req.body.Email,
-            Nucleo_id:req.body.Nucleo,
+            Nu_id:req.body.Nucleo,
             data_actualizacao:  Date(Date.now).toString()
          }}).exec((erro, dizimista)=>{
    
