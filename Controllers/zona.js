@@ -57,6 +57,9 @@ module.exports.controller = (app) => {
   })
 
   app.get('/zona/edit/:id', async(req, res)=>{
+    const Padroeiro = await PadroeiroModel.find({})
+                                          .lean()
+
     await ZonaModel.findById({_id: req.params.id})
                       .lean()
                       .exec((erro, zona)=>{
@@ -65,7 +68,8 @@ module.exports.controller = (app) => {
                              res.send(erro)
                          }else{
                              res.render('zona/edit',{
-                                                          Zona: zona                                                          })
+                                                          Zona: zona,
+                                                        Padroeiro: Padroeiro                                                         })
                          }
                      })
   })

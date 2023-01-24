@@ -62,6 +62,13 @@ module.exports.controller = (app) => {
   
   
   app.get('/nucleo/edit/:id', async(req, res)=>{
+
+    const Padroeiro = await PadroeiroModel.find({})
+                                          .lean()
+
+    const Comunidade = await ComunidadeModel.find({})
+                                            .lean()
+
     await NuModel.findById({_id: req.params.id})
                       .lean()
                       .exec((erro, nucleo)=>{
@@ -70,7 +77,9 @@ module.exports.controller = (app) => {
                              res.send(erro)
                          }else{
                              res.render('nucleo/edit',{
-                                      Nucleo: nucleo                                                          })
+                                      Nucleo: nucleo,
+                                      Padroeiro: Padroeiro,
+                                      Comunidade: Comunidade                                                          })
                          }
                      })
   })

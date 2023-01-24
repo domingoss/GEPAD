@@ -52,6 +52,11 @@ module.exports.controller = (app) => {
   })
 
   app.get('/comunidade/edit/:id', async(req, res)=>{
+    const Padroeiro = await PadroeiroModel.find({})
+                                          .lean()
+
+    const Zona = await ZonaModel.find({}).lean()
+    
     await ComunidadeModel.findById({_id: req.params.id})
                       .lean()
                       .exec((erro, comunidade)=>{
@@ -60,7 +65,10 @@ module.exports.controller = (app) => {
                              res.send(erro)
                          }else{
                              res.render('comunidade/edit',{
-                                                          Comunidade: comunidade                                                          })
+                                                          Comunidade: comunidade,
+                                                          Zona: Zona,
+                                                          Padroeiro: Padroeiro
+                                                        })
                          }
                      })
   })
